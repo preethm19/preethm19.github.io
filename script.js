@@ -65,8 +65,8 @@ class Particle {
     this.exitAngle = exitAngle;
     this.toRemove = false;
 
-    // 🎯 Updated Color to Soft Cyan Blue (#00E1FF)
-    this.baseColor = isTemporary ? "0, 225, 255" : "0, 225, 255";
+    // 🎯 Updated to Electric Purple (#B026FF)
+    this.baseColor = isTemporary ? "176, 38, 255" : "176, 38, 255";
 
     if (this.isTemporary) {
       this.opacity = 1.0;
@@ -125,8 +125,8 @@ function connectParticles() {
           ? 0.2 * (1 - distance / maxDistance)
           : 0.4 * (1 - distance / maxDistance);
 
-        // 🎯 Connect Line Color Updated to Cyan Blue
-        ctx.strokeStyle = `rgba(0, 225, 255, ${lineAlpha})`;
+        // 🎯 Connect Line Color Updated to Electric Purple
+        ctx.strokeStyle = `rgba(176, 38, 255, ${lineAlpha})`;
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
