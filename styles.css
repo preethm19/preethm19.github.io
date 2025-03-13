@@ -1,134 +1,123 @@
 /* Reset default margins/padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Full-screen layout with hidden overflow */
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #FDF6EC;
-    /* Creamish white background */
-    font-family: 'Poppins', sans-serif;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Soft gradient */
+  font-family: 'Poppins', sans-serif;
 }
 
 /* The canvas behind everything */
 canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-/* Container for the name and social boxes, centered in the viewport */
+/* Container for the name and social boxes */
 .content-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 /* Main title styling */
 .main-title {
-    font-size: 80px;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 30px;
+  font-size: 80px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 30px;
 }
 
-/* Social boxes container (default for larger screens) */
+/* Social boxes container */
 .social-boxes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
 }
 
-/* Base style for social boxes - increased size and 3D look */
+/* Social box styling */
 .box {
-    text-decoration: none;
-    color: #fff;
-    background-color: #009688;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    text-transform: capitalize;
-    padding: 15px 25px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    /* Smooth transition */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-
-    /* For boxes using background images */
-    background-repeat: no-repeat;
-    background-position: 10px center;
-    background-size: 20px 20px;
-    padding-left: 55px;
+  text-decoration: none;
+  color: #000; /* High contrast black text */
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  padding: 15px 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(15px); /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.3); /* Light frosted background */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Soft border */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  
+  /* For icons */
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 55px;
 }
 
-/* Hover effect - deeper shadow */
+/* Hover effect */
 .box:hover {
-    background-color: #00796b;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
-    /* Deeper shadow */
-    transform: translateY(-5px);
-    /* Popup effect */
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Twitter box with icon from Devicon */
+/* Individual social platform icons */
 .box.twitter {
-    background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg");
+  background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg");
 }
 
-/* Discord box with icon from PNGIMG */
 .box.discord {
-    background-image: url("https://pngimg.com/uploads/discord/discord_PNG30.png");
+  background-image: url("https://pngimg.com/uploads/discord/discord_PNG30.png");
 }
 
-/* GitHub box with icon from Devicon */
 .box.github {
-    background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg");
+  background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg");
 }
 
-/* Reddit box using an image from Reddit’s announcements page (via favicon as a proxy) */
 .box.reddit {
-    background-image: url("https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png");
-    background-size: 22px 22px;
+  background-image: url("https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png");
+  background-size: 22px 22px;
 }
 
-/* Telegram box with icon from PNGIMG */
 .box.telegram {
-    background-image: url("https://pngimg.com/uploads/telegram/telegram_PNG6.png");
-    background-size: 22px 22px;
+  background-image: url("https://pngimg.com/uploads/telegram/telegram_PNG6.png");
+  background-size: 22px 22px;
 }
 
-/* Email box with generic envelope icon from Flaticon */
 .box.email {
-    background-image: url("https://cdn-icons-png.flaticon.com/512/561/561127.png");
-    background-size: 22px 16px;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/561/561127.png");
+  background-size: 22px 16px;
 }
 
-/* MEDIA QUERY for mobile screens (below 600px) */
+/* MEDIA QUERY for mobile screens */
 @media (max-width: 600px) {
-    .main-title {
-        font-size: 40px;
-        /* Reduced font size for mobile */
-    }
-
-    .social-boxes {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        width: 90%;
-        /* Increase width to fill available space */
-        margin: 0 auto;
-        justify-items: center;
-    }
+  .main-title {
+    font-size: 40px;
+  }
+  .social-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 90%;
+    margin: 0 auto;
+    justify-items: center;
+  } 
 }
