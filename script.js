@@ -1,3 +1,5 @@
+// Ensure GSAP is loaded via CDN in your HTML head before this script runs
+
 // Setup device pixel ratio for high-DPI mobile devices
 const dpr = window.devicePixelRatio || 1;
 
@@ -63,7 +65,7 @@ class Particle {
     this.exitAngle = exitAngle;
     this.toRemove = false;
 
-    // 🎯 Updated to Cyan Blue
+    // 🎯 Updated Color to Soft Cyan Blue (#00E1FF)
     this.baseColor = isTemporary ? "0, 225, 255" : "0, 225, 255";
 
     if (this.isTemporary) {
@@ -97,17 +99,42 @@ class Particle {
 
   draw() {
     ctx.fillStyle = `rgba(${this.baseColor}, ${this.opacity})`;
-    ctx.shadowBlur = 12; 
+    ctx.shadowBlur = 12; // Subtle Glow Effect 
     ctx.shadowColor = `rgba(${this.baseColor}, 0.5)`;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
-    ctx.shadowBlur = 0;
+    ctx.shadowBlur = 0; // Reset shadow after drawing particle
   }
 }
 
 for (let i = 0; i < numParticles; i++) {
   particlesArray.push(new Particle());
+}
+
+function connectParticles() {
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  for (let i = 0; i < particlesArray.length; i++) {
+    for (let j = i + 1; j < particlesArray.length; j++) {
+      let dx = particlesArray[i].x - particlesArray[j].x;
+      let dy = particlesArray[i].y - particlesArray[j].y;
+      let distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < maxDistance) {
+        let lineAlpha = (!particlesArray[i].isTemporary && !particlesArray[j].isTemporary)
+          ? 0.2 * (1 - distance / maxDistance)
+          : 0.4 * (1 - distance / maxDistance);
+
+        // 🎯 Connect Line Color Updated to Cyan Blue
+        ctx.strokeStyle = `rgba(0, 225, 255, ${lineAlpha})`;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+        ctx.stroke();
+      }
+    }
+  }
 }
 
 function animateParticles() {
@@ -117,7 +144,36 @@ function animateParticles() {
     particle.update();
     particle.draw();
   });
+  connectParticles();
   requestAnimationFrame(animateParticles);
 }
 
 animateParticles();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+  ctx.scale(dpr, dpr);
+});
+
+// ✅ Open links in new tab + Email opens in mail app
+document.querySelectorAll('.box').forEach(box => {
+  box.addEventListener('click', (event) => {
+    const link = box.getAttribute('href');
+
+    // If the box is "Email," open the mail app
+    if (link.startsWith('mailto:')) {
+      window.location.href = link;
+    } else {
+      // For other boxes, open the link in a new tab
+      window.open(link, '_blank');
+    }
+  });
+});
+
+// ✅ Logos Handling (Fixed)
+document.querySelectorAll('.box img').forEach((logo) => {
+  logo.addEventListener('dragstart', (e) => e.preventDefault()); // Prevent dragging logos
+});
