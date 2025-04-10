@@ -39,6 +39,10 @@ canvas {
   font-weight: 600;
   color: #000;
   margin-bottom: 30px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* Social boxes container */
