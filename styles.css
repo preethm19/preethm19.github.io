@@ -55,6 +55,15 @@ canvas {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  .social-boxes,
+  .social-boxes * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+}
+
 }
 
 /* Social box styling */
