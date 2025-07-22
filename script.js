@@ -177,3 +177,25 @@ document.querySelectorAll('.box').forEach(box => {
 document.querySelectorAll('.box img').forEach((logo) => {
   logo.addEventListener('dragstart', (e) => e.preventDefault()); // Prevent dragging logos
 });
+
+// Theme switcher logic
+const themeSwitch = document.getElementById('checkbox');
+
+themeSwitch.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+    // Save theme preference to localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Check for saved theme preference
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+    }
+});
