@@ -10,7 +10,7 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Soft gradient */
+  background: linear-gradient(135deg, #000000, #000000); /* Soft gradient */
   font-family: 'Poppins', sans-serif;
 }
 
@@ -35,15 +35,46 @@ canvas {
 
 /* Main title styling */
 .main-title {
-  font-size: 80px;
-  font-weight: 600;
-  color: #000;
+  font-size: 72px;
+  font-weight: 700;
   margin-bottom: 30px;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-align: center;
+
+  background: linear-gradient(90deg, 
+    #000000,   /* Black */
+    #ffffff,   /* White */
+    #000000,   /* Black */
+    #ffffff,   /* White */
+    #000000,   /* Black */
+    #ffffff    /* White */
+  );
+  background-size: 600%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradientFlow 12s ease infinite;
 }
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
 
 /* Social boxes container */
 .social-boxes {
@@ -56,33 +87,39 @@ canvas {
 /* Social box styling */
 .box {
   text-decoration: none;
-  color: #000; /* High contrast black text */
+  color: #FFF;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: 0.5px;
   text-transform: capitalize;
-  padding: 15px 25px;
+  height: 56px; /* ✅ Fixed height for uniformity */
+  width: 170px; /* Optional: keep consistent width */
+  line-height: 1;
+  display: flex; /* ✅ Use flex to align text */
+  align-items: center;
+  justify-content: flex-start;
+
   border-radius: 12px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(15px); /* Glassmorphism */
-  background: rgba(255, 255, 255, 0.3); /* Light frosted background */
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Soft border */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  
-  /* For icons */
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 15px rgba(255, 255, 204, 0.05);
+
   background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 20px 20px;
-  padding-left: 55px;
+  background-position: 15px center;
+  background-size: 30px 30px; /* ✅ Constrain all icons uniformly */
+  padding-left: 65px;
+
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
 
+
 /* Hover effect */
 .box:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(200, 200, 255, 0.5);
   transform: translateY(-5px);
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
 }
@@ -124,6 +161,31 @@ url("https://img.icons8.com/?size=48&id=DYoTRhf8VVC1&format=png");
   background-size: 35px 35px;
 }
 
+/* Glassy image wrapper like the social boxes */
+.photo-glass-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0); /* Frosted background */
+  box-shadow: 0 8px 15px rgba(255, 255, 204, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image inside the glass wrapper */
+.photo-glass {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
 /* MEDIA QUERY for mobile screens */
 @media (max-width: 600px) {
   .main-title {
@@ -138,4 +200,3 @@ url("https://img.icons8.com/?size=48&id=DYoTRhf8VVC1&format=png");
     justify-items: center;
   } 
 }
-
