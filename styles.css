@@ -89,36 +89,39 @@ canvas {
 
 /* Individual social platform icons */
 .box.twitter {
-  background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg");
+  background-image: url("https://img.icons8.com/?size=48&id=8HtzWaaC5y60&format=png");
+  background-size: 35px 35px
 }
 
 .box.discord {
-  background-image: url("https://pngimg.com/uploads/discord/discord_PNG30.png");
+  background-image: url("https://img.icons8.com/?size=64&id=LIGCjf5dKGrN&format=png");
+  background-size: 35px 35px
 }
 
 .box.github {
-  background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg");
+  background-image: url("https://img.icons8.com/?size=48&id=Mhl1TfJLdkh5&format=png");
+  background-size: 35px 35px
 }
 
 .box.reddit {
-  background-image: url("https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-57x57.png");
-  background-size: 22px 22px;
+  background-image: url("https://img.icons8.com/?size=48&id=IsfFxUYvG2ht&format=png");
+  background-size: 37px 40px;
 }
 
 .box.telegram {
-  background-image: url("https://pngimg.com/uploads/telegram/telegram_PNG6.png");
-  background-size: 22px 22px;
+  background-image: url("https://img.icons8.com/?size=48&id=Q7Ekaw3BkWRp&format=png");
+  background-size: 35px 35px;
 }
 
 .box.email {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/561/561127.png");
-  background-size: 22px 16px;
+  background-image: url("https://img.icons8.com/?size=48&id=l6hLI08P4ys1&format=png");
+  background-size: 30px 30px;
 }
 
 .box.linkedin {
   background-image:
-url("https://pngimg.com/uploads/linkedIn/small/linkedIn_PNG20.png");
-  background-size: 22px 22px;
+url("https://img.icons8.com/?size=48&id=DYoTRhf8VVC1&format=png");
+  background-size: 35px 35px;
 }
 
 /* MEDIA QUERY for mobile screens */
