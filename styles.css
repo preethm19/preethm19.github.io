@@ -160,6 +160,19 @@ canvas {
 url("https://img.icons8.com/?size=48&id=DYoTRhf8VVC1&format=png");
   background-size: 35px 35px;
 }
+/*For placing Linkedin in middle*/
+@media (max-width: 600px) {
+  .box.linkedin {
+    grid-column: 1 / -1;         /* Span full row */
+    justify-self: center;        /* Center the box */
+    width: max-content;          /* Let it grow to fit full text */
+    padding-left: 55px;          /* Preserve space for icon */
+    padding-right: 25px;         /* Ensure text has breathing room */
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
 
 /* Glassy image wrapper like the social boxes */
 .photo-glass-wrapper {
