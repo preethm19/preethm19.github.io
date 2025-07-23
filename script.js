@@ -66,7 +66,7 @@ class Particle {
     this.toRemove = false;
 
     // 🎯 Updated to Electric Purple (#B026FF)
-    this.baseColor = isTemporary ? "176, 38, 255" : "176, 38, 255";
+    this.baseColor = isTemporary ? "255, 255, 204" : "255, 255, 204";
 
     if (this.isTemporary) {
       this.opacity = 1.0;
@@ -126,7 +126,7 @@ function connectParticles() {
           : 0.4 * (1 - distance / maxDistance);
 
         // 🎯 Connect Line Color Updated to Electric Purple
-        ctx.strokeStyle = `rgba(176, 38, 255, ${lineAlpha})`;
+        ctx.strokeStyle = `rgba(255, 255, 204, ${lineAlpha})`;
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
